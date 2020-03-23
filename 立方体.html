@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,50%) rotate3d(1,2,0,-30deg);
+            transform-style: preserve-3d;
+            animation:  swing 5s infinite linear;
+        }
+        .box:hover{
+            animation-play-state: paused;
+        }
+        @keyframes swing {
+            0%{
+                transform: translate(-50%,50%) rotate3d(1,2,0,-30deg);
+            }
+            100%{
+                transform: translate(-50%,50%) rotate3d(1,2,0,330deg);
+            }
+        }
+        .box div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.5;
+        }
+        .front {
+            background-color: cadetblue;
+            transform:translateZ(100px);
+
+        }
+        .back {
+            background-color: coral;
+            transform:translateZ(-100px) rotateY(180deg);
+        }
+        .left {
+            background-color: purple;
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+        .right {
+            background-color:deeppink;
+            transform: translateX(100px) rotateY(90deg);
+        }
+        .top {
+            background-color:green;
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        .bottom{
+            background-color:blue;
+            transform: translateY(100px) rotateX(-90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="front">front</div>
+        <div class="back">back</div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+        <div class="top">top</div>
+        <div class="bottom">bottom</div>
+    </div>
+</body>
+</html>
